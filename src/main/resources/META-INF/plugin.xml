@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>indi.tiandi.git_multi_repo_config</id>
+    <name>git_multi_repo_config</name>
+    <vendor email="qq1274949542@163.com" url="https://github.com/tiandiweizun">tiandi</vendor>
+
+    <description><![CDATA[
+    Username and email can be set separately for each repository
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <checkinHandlerFactory implementation="indi.tiandi.GitCheckinHandlerFactory"></checkinHandlerFactory>
+        <applicationConfigurable instance="indi.tiandi.RepositorySettingsConfigurable" parentId="project.propVCSSupport.Mappings" id="indi.tiandi.RepositorySettingsConfigurable"
+                                 displayName="Multi Repo Config"></applicationConfigurable>
+        <applicationService serviceImplementation="indi.tiandi.RepositorySettingsState"></applicationService>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
